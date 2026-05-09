@@ -524,14 +524,14 @@ footer { background: #0f1e38; color: #8898aa; padding: 36px 20px 28px; margin-to
 
       <!-- Step 1 -->
       <div id="step1">
-        <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;">📌 대분류 선택 (복수 선택 가능)</div>
+        <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;">📌 관심 분야 선택 (복수 선택 가능)</div>
         <div class="cat-grid" id="cat-grid">
-          <button class="cat-btn" data-cat="질병·상해" onclick="selectCat(this)">🏥 질병·상해</button>
-          <button class="cat-btn" data-cat="자동차" onclick="selectCat(this)">🚗 자동차</button>
+          <button class="cat-btn" data-cat="건강·상해" onclick="selectCat(this)">🏥 건강·상해</button>
+          <button class="cat-btn" data-cat="시니어·간병" onclick="selectCat(this)">👴 시니어·간병</button>
+          <button class="cat-btn" data-cat="자산·연금" onclick="selectCat(this)">💰 자산·연금</button>
+          <button class="cat-btn" data-cat="자동차·운전자" onclick="selectCat(this)">🚗 자동차·운전자</button>
           <button class="cat-btn" data-cat="어린이·태아" onclick="selectCat(this)">👶 어린이·태아</button>
-          <button class="cat-btn" data-cat="노후·연금" onclick="selectCat(this)">👴 노후·연금</button>
-          <button class="cat-btn" data-cat="생명보험" onclick="selectCat(this)">💙 생명보험</button>
-          <button class="cat-btn" data-cat="재물·화재" onclick="selectCat(this)">🏠 재물·화재</button>
+          <button class="cat-btn" data-cat="주택·생활" onclick="selectCat(this)">🏠 주택·생활</button>
           <button class="cat-btn" data-cat="여행·레저" onclick="selectCat(this)">✈️ 여행·레저</button>
           <button class="cat-btn" data-cat="펫보험" onclick="selectCat(this)">🐾 펫보험</button>
         </div>
@@ -1203,15 +1203,43 @@ footer { background: #0f1e38; color: #8898aa; padding: 36px 20px 28px; margin-to
 })();
 
 // ── DATA ──
+// ── 2026년 최신판 확장형 보험 카테고리 데이터 ──
 const SUB_CATS = {
-  '질병·상해': ['종합보험','간병보험','치아보험','운전자보험','종신보험','후유장해','치매보험','실손보험','암보험','뇌졸중보험','심장보험','당뇨보험'],
-  '자동차': ['자동차보험(의무)','운전자보험','렌터카보험'],
-  '어린이·태아': ['어린이보험','태아보험','어린이실손'],
-  '노후·연금': ['연금보험','변액연금','즉시연금','저축보험'],
-  '생명보험': ['종신보험','정기보험','CI보험','GI보험'],
-  '재물·화재': ['화재보험','재물보험','영업배상책임보험'],
-  '여행·레저': ['여행자보험','레저보험','골프보험'],
-  '펫보험': ['강아지보험','고양이보험','기타반려동물'],
+  '건강·상해': [
+    '통합 암보험(표적항암/CAR-T)', '뇌·심혈관(2대질병) 진단비', '수술비/입원비(1-5종/N대)',
+    '실손의료비(4세대/유병자)', '치아보험(임플란트/보존)', '대상포진/통풍/당뇨/혈압',
+    '상해/골절/후유장해', '여성특화(유방/자궁) 보험', '남성특화(전립선) 보험', '정신질환(우울증/공황) 보장'
+  ],
+  '시니어·간병': [
+    '간병인 사용일당(체증형)', '간병인 지원 서비스(파견)', '재가급여(방문요양/목욕)',
+    '시설급여(요양원/주야간보호)', '치매 진단비/생활자금', '장기요양등급(1~5급) 판정비',
+    '유병자 간편건강보험(3.5.5)', '상속세 재원 마련 종신'
+  ],
+  '자산·연금': [
+    '단기납 종신(5/7년납 환급형)', '공시이율형 연금보험', '변액연금/인덱스연금',
+    '비과세 저축보험', '경영인(CEO) 정기보험', '즉시연금(은퇴직후 소득)',
+    '개인형 IRP/세액공제용 연금'
+  ],
+  '자동차·운전자': [
+    '자동차보험(다이렉트 비교)', '운전자보험(경찰조사 변호사비용)', '교통사고처리지원금(자부상)',
+    '영업용 운전자보험', '렌터카 단기보험'
+  ],
+  '어린이·태아': [
+    '태아보험(선천이상/저체중)', '어린이보험(어른이보험)', '아이 성조숙증/ADHD 보장',
+    '어린이 실손의료비', '자녀 교육자금 저축'
+  ],
+  '주택·생활': [
+    '주택화재(누수/급배수시설)', '가전제품 수리비(20대 가전)', '층간소음 피해 지원',
+    '임대인 배상책임', '사이버 명예훼손/보이스피싱', '스마트기기(핸드폰) 파손'
+  ],
+  '여행·레저': [
+    '해외여행자 보험(긴급송환)', '국내여행자/제주도여행', '골프보험(홀인원/배상)',
+    '레저/등산/스포츠 사고', '낚시/캠핑 전용 보험'
+  ],
+  '펫보험': [
+    '강아지 의료 실비(슬개골)', '고양이 의료 실비(신부전)', '반려동물 배상책임',
+    '펫 장례 지원 서비스'
+  ]
 };
 const selectedItems = new Set();
 
